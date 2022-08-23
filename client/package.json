@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@solidjs/router": "^0.4.2",
+    "axios": "^0.27.2",
     "babel-preset-solid": "^1.4.8",
     "solid-js": "^1.4.8"
   },

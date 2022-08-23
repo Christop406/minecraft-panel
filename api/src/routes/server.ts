@@ -4,6 +4,7 @@ import { copyFile, getStorageLocation, saveFile, stdioCache } from "../services"
 import { downloadJar } from "../services/jar-downloader";
 import { fetchVersionInformation, fetchVersionManifest } from "../services/mojang";
 import { spawn } from "child_process";
+import { getActiveServers, getAllServers } from "../services/server";
 
 export const serverRoutes = Router();
 
@@ -74,4 +75,23 @@ serverRoutes.post('/start', (req, res) => {
     });
 
     res.status(200).send('Success');
+});
+
+serverRoutes.get('/status', (req, res) => {
+    const id = req.query.id;
+
+    if (typeof id !== 'string') {
+        res.status(400).send('ID must be a string.');
+        return;
+    }
+
+    const activeServers = getActiveServers();
+
+    res.json({ active: activeServers.includes(id) });
+});
+
+serverRoutes.get('/list', async (req, res) => {
+    const servers = await getAllServers();
+
+    res.json(servers);
 });

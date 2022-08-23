@@ -10,6 +10,7 @@ const i = enableWs(rawApp);
 const app = i.app;
 
 app.use(cors());
+app.use(express.json());
 
 app.use('/server', serverRoutes);
 app.ws('/stdio', stdioSocketHandler);

@@ -1,6 +1,14 @@
-import './style/main.css';
+import "./style/main.css";
 
 import { render } from "solid-js/web";
-import { TestComponent } from "./test";
+import { Router } from "@solidjs/router";
+import { Application } from "./Application";
 
-render(() => <TestComponent />, document.getElementById("app"));
+render(
+  () => (
+    <Router>
+      <Application />
+    </Router>
+  ),
+  document.getElementById("app")
+);

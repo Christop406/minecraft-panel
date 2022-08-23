@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:all": "pm2 start pm2.config.js",
+    "stop": "pm2 stop pm2.config.js",
+    "start:client": "npm run start:all -- --only \"minecraft-panel-client\"",
+    "start:api": "npm run start:all -- --only \"minecraft-panel-api\""
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "pm2": "^5.2.0"
+  }
 }

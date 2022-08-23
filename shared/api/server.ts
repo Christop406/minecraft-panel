@@ -1,0 +1,1 @@
+const apiUrl = process.env.API_URL ?? 'localhost:4687';
